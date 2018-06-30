@@ -28,7 +28,7 @@ class Board
     cells.count{|cell| cell == "X" || cell == "O"}
   end
 
-  def taken?(board, index)
+  def taken?(input)
   if board[index] == " "
     false
   elsif board[index] == ""
