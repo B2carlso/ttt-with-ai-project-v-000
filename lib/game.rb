@@ -29,4 +29,46 @@ class Game
       combo.all?{|cell| board.cells[cell] == "O"}
     end
   end
+
+  def draw?
+    board.full? && !won?
+  end
+
+  def over?
+    draw? || won?
+  end
+
+  def winner
+    champ = ""
+    if champ = won?
+      board.cells[champ[0]]
+    end
+  end
+
+  def turn
+    selection = ""
+    selection = current_player.move(board)
+    if board.valid_move?(selection)
+      board.update(selection, current_player)
+    else
+      puts "Invalid input."
+      puts "Player #{current_player.token}, please enter 1-9:"
+      turn
+    end
+  end
+
+  def play
+    board.display
+    while !over?
+      puts "Player #{current_player.token}, please enter 1-9:"
+      turn
+      board.display
+    end
+
+    if won?
+      puts "Congratulations #{winner}!"
+    else
+      puts "Cat's Game!"
+    end
+  end
 end
