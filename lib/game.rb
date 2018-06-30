@@ -18,4 +18,8 @@ class Game
     @player_2 = player_2
     @board = board
   end
+
+  def current_player
+    board.turn_count.even? ? player_1 : player_2
+  end
 end
