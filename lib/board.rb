@@ -29,11 +29,11 @@ class Board
   end
 
   def taken?(input)
-  if board[index] == " "
+  if cells[input] == " "
     false
-  elsif board[index] == ""
+  elsif cells[input] == ""
     false
-  elsif board[index] == nil
+  elsif cells[input] == nil
     false
   else
     true
