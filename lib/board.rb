@@ -31,4 +31,9 @@ class Board
   def taken?(input)
     position(input) == "X" || position(input) == "O"
   end
+
+  def valid_move?(input)
+    input.to_i.between?(1, 9) && !taken?(input)
+  end
+
 end
