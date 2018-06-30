@@ -23,4 +23,8 @@ class Board
   def full?
     cells.all?{|cell| cell == "X" || cell == "O"}
   end
+
+  def turn_count
+    cells.count{|cell| cell == "X" || cell == "O"}
+  end
 end
