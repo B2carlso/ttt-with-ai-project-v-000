@@ -29,14 +29,6 @@ class Board
   end
 
   def taken?(input)
-  if cells[input] == " "
-    false
-  elsif cells[input] == ""
-    false
-  elsif cells[input] == nil
-    false
-  else
-    true
-    end
+    position(input) == "X" || position(input) == "O"
   end
 end
